@@ -31,9 +31,13 @@
         });
     }
 
+   // onMount(); fetch data 
+
+
     afterUpdate(
     createChart
-)
+);
+
 
 
 

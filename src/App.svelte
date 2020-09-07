@@ -1,7 +1,9 @@
 <script>
-
+	
 	import Search from './components/search.svelte'; 
 	import Chart from './components/chart.svelte';
+	import Footer from './components/footer.svelte';
+	
 </script>
 
 <main>
@@ -10,6 +12,7 @@
 	<p> Testing out Svelte with data visualization </p>
 	<Search/>
 	<Chart/>
+	<Footer/>
 </main>
 
 <style>
