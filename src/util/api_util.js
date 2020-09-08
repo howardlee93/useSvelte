@@ -1,16 +1,9 @@
 // util.js
 import axios from 'axios';
 
+const baseUrl = 'https://usesthis.com/api/stats';
 
-const baseUrl = 'https://usesthis.com/api/';
+export const fetchInfo = (type, query) =>( 
+    axios.get(`baseUrl/${type}/${equipment}`)
 
-const fetchHardareInfo = (equipment) =>( 
-    axios.get(`baseUrl/hardware/${ equipment}`)
-
-);
-
-
-
-const fetchSoftwareInfo = (program) =>( 
-    axios.get(`baseUrl/software/${ program}`)
 );

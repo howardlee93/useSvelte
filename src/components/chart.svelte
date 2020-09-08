@@ -1,3 +1,4 @@
+<canvas id="chart" width="100" height="100"/>
 
 <script>
 
@@ -34,8 +35,8 @@
    // onMount(); fetch data 
 
 
-    afterUpdate(
-    createChart
+   onMount(()=>
+    createChart()
 );
 
 
@@ -43,9 +44,7 @@
 
 </script>
 
-<canvas id="chart" width="100" height="100"/>
 
-<p>Chart component</p>
 
 
 
