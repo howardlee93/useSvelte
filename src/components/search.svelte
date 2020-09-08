@@ -5,23 +5,27 @@
     let query;
     const ENTER_KEY = 13;
 
-    const keyDown = (event)=>{
-        let key = event.keyCode;
-
-        if (key == ENTER_KEY){
-            console.log("call api");
-            //handleSubmit
-        }
-    };
+  
 
 
-    const handleSubmit = (type, query) =>{
+    const handleSubmit = (query) =>{
+        // console.log(query)
+        let type ="software";
+
         fetchInfo(type, query)
         .then(res => console.log(res));
     }
 
+    const keyDown = (event)=>{
+        let key = event.keyCode;
+
+        if (key == ENTER_KEY){
+            handleSubmit(query)
+        }
+    };
+
 </script>
 
 
-<input bind:value={query} on:keydown|once={keyDown}>
+<input bind:value={query} on:keydown={keyDown}>
 <p> Searching for ... {query}</p>

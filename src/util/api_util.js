@@ -4,6 +4,6 @@ import axios from 'axios';
 const baseUrl = 'https://usesthis.com/api/stats';
 
 export const fetchInfo = (type, query) =>( 
-    axios.get(`baseUrl/${type}/${equipment}`)
+    axios.get(baseUrl+`/${type}/${query}`)
 
 );
