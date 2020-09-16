@@ -2,17 +2,19 @@
 
     import {fetchInfo} from '../util/api_util';
     import {dataset} from '../store/store';
-    let query;
+    let state;
+    $: state;
+
     const ENTER_KEY = 13;
 
 
-    const handleSubmit = (query) =>{
+    const handleSubmit = (state) =>{
         // console.log(query)
         // let type ="software"; 
 
-        fetchInfo( query)
+        fetchInfo(state)
         // .then(res => console.log(res));
-        .then( res => dataset.set(res.data));
+        .then( res => dataset.update(data => res.data));
 
     }
 
@@ -20,12 +22,16 @@
         let key = event.keyCode;
 
         if (key == ENTER_KEY){
-            handleSubmit(query)
+            handleSubmit(state)
         }
     };
 
 </script>
 
 
-<input bind:value={query} on:keydown={keyDown}>
-<p> Searching for ... {query}</p>
+<input bind:value={state} on:keydown={keyDown}>
+<p> Searching for ... 
+    {#if state}  
+         {state.toUpperCase()}
+    {/if}
+</p>

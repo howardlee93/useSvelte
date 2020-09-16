@@ -20,7 +20,7 @@
     const createChart = () =>{
 
         console.log(dataset);
-        
+
         // const ctx = document.getElementById("chart").getContext('2d');
 
         // let chart = new Chart(ctx, {
@@ -35,10 +35,7 @@
         // });
     }
 
-   // onMount(); fetch data 
-
-
-   onMount(()=>
+    afterUpdate(
     createChart()
 );
 

@@ -1,9 +1,9 @@
 // api_util.js
 import axios from 'axios';
 
-export const fetchInfo = query =>{
-	return axios.get( "https://api.covidtracking.com/v1/us/current.json");
-
+export const fetchInfo = state =>{
+	return axios.get( `	https://api.covidtracking.com/v1/states/${state}/info.json`);
 };
+
 
 
