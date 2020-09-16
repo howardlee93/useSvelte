@@ -1,11 +1,9 @@
-// util.js
+// api_util.js
 import axios from 'axios';
 
-const baseUrl = 'https://usesthis.com/api/stats';
+export const fetchInfo = query =>{
+	return axios.get( "https://api.covidtracking.com/v1/us/current.json");
 
-export const fetchInfo = (type, query) =>( 
-    axios.get(baseUrl+`/${type}/${query}`,
-    {headers: {'Access-Control-Allow-Origin': '*'}}
-)
+};
 
-);
+

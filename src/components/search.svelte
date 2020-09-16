@@ -1,19 +1,19 @@
 <script>
 
     import {fetchInfo} from '../util/api_util';
-
+    import {dataset} from '../store/store';
     let query;
     const ENTER_KEY = 13;
-
-  
 
 
     const handleSubmit = (query) =>{
         // console.log(query)
-        let type ="software";
+        // let type ="software"; 
 
-        fetchInfo(type, query)
-        .then(res => console.log(res));
+        fetchInfo( query)
+        // .then(res => console.log(res));
+        .then( res => dataset.set(res.data));
+
     }
 
     const keyDown = (event)=>{
