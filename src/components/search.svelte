@@ -11,10 +11,17 @@
     const handleSubmit = (state) =>{
         // console.log(query)
         // let type ="software"; 
+        // dataset.update(n => n = state);
+
+        // console.log(dataset);
+
+
 
         fetchInfo(state)
         // .then(res => console.log(res));
-        .then( res => dataset.update(data => res.data));
+        .then( res => dataset.update(data => Object.assign(data, res.data)));
+
+
 
     }
 

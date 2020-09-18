@@ -1,4 +1,4 @@
-<canvas id="chart" width="100" height="100"/>
+<!-- <canvas id="chart" width="100" height="100"/> -->
 
 <script>
 
@@ -6,6 +6,13 @@
     import {dataset} from '../store/store';
 
     import Chart from "chart.js";
+
+    // let data;
+
+    // const unsubscribe = dataset.subscribe( value =>{
+    //     data = value;
+
+    // })
 
     // const dataset =  {
     //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -17,9 +24,9 @@
     //         }]
     //     };
 
-    const createChart = () =>{
+    // const createChart = () =>{
 
-        console.log(dataset);
+    //     console.log(dataset);
 
         // const ctx = document.getElementById("chart").getContext('2d');
 
@@ -33,16 +40,19 @@
         // // Configuration options go here
         // options: {}
         // });
-    }
+    // }
 
-    afterUpdate(
-    createChart()
-);
+    // afterUpdate(()=>
+    // createChart()
+// );
 
 
 
 
 </script>
+
+
+<h1>The count is {$dataset.state}</h1>
 
 
 

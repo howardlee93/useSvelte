@@ -6,6 +6,5 @@ import {
   
 
  
-  export let dataset = writable([]);
+  export const dataset = writable({})
 
-$: dataset;
