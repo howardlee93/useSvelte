@@ -3,13 +3,12 @@
     import {fetchInfo} from '../util/api_util';
     import {dataset} from '../store/store';
     let state;
-    $: state;
 
     const ENTER_KEY = 13;
 
 
     const handleSubmit = (state) =>{
-        // console.log(query)
+        // console.log(state)
         // let type ="software"; 
         // dataset.update(n => n = state);
 

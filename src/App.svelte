@@ -7,8 +7,8 @@
 </script>
 
 <main>
-	<h1>Use This!</h1>
-	<h2> UseThis API and ChartJS  </h2>
+	<h1>Svelte Test</h1>
+	<h2> Data API and ChartJS  </h2>
 	<p> Testing out Svelte with data visualization </p>
 	<Search/>
 	<Chart/>
