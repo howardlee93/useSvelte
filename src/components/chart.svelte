@@ -7,7 +7,16 @@
 
     import Chart from "chart.js";
 
-    // let data;
+    const data = {
+        labels: ['hospitalizedCurrently', 'inIcuCurrently', 'negative', 'deathConfirmed'],
+            datasets: [{
+                label: `Coronavirus data for ${dataset.state}`,
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [$dataset.hospitalizedCurrently, $dataset.inIcuCurrently, $dataset.negative, $dataset.deathConfirmed]
+            }]
+
+    }
 
     // const unsubscribe = dataset.subscribe( value =>{
     //     data = value;
@@ -24,36 +33,38 @@
     //         }]
     //     };
 
-    // const createChart = () =>{
+    const createChart = () =>{
 
-    //     console.log(dataset);
+        console.log($dataset.hospitalizedCurrently);
 
-        // const ctx = document.getElementById("chart").getContext('2d');
+        const ctx = document.getElementById("chart").getContext('2d');
 
-        // let chart = new Chart(ctx, {
-        // // The type of chart we want to create
-        // type: 'line',
+        let chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
 
-        // // The data for our dataset
-        // data: dataset,
+        // The data for our dataset
+        data: data,
 
-        // // Configuration options go here
-        // options: {}
-        // });
-    // }
+        // Configuration options go here
+        options: {}
+        });
+    }
 
-    // afterUpdate(()=>
-    // createChart()
-// );
+    afterUpdate(()=>
+    createChart()
+);
 
 
 
 
 </script>
 
-
-<h1>The count is {$dataset.state}</h1>
-
+{#if $dataset.state}
+    <h1>Showing coronavirus data for {$dataset.state}</h1>
+{:else}
+    <h1>Look up a state's coronavirus data</h1>
+{/if}
 
 
 
