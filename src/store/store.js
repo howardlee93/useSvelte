@@ -6,5 +6,5 @@ import {
   
 
  
-  export const dataset = writable({})
+  export const coronadataset = writable({})
 

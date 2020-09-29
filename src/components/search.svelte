@@ -1,7 +1,7 @@
 <script>
 
     import {fetchInfo} from '../util/api_util';
-    import {dataset} from '../store/store';
+    import {coronadataset} from '../store/store';
     let state;
 
     const ENTER_KEY = 13;
@@ -18,7 +18,7 @@
 
         fetchInfo(state)
         // .then(res => console.log(res));
-        .then( res => dataset.update(data => Object.assign(data, res.data)));
+        .then( res => coronadataset.update(data => Object.assign(data, res.data)));
 
 
 

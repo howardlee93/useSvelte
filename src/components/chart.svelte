@@ -1,41 +1,35 @@
-<canvas id="chart" width="100" height="100"/>
 
 <script>
 
-    import { afterUpdate, getContext, onMount } from "svelte";
-    import {dataset} from '../store/store';
+    import { afterUpdate, onMount, onDestroy } from "svelte";
+    import {coronadataset} from '../store/store';
 
     import Chart from "chart.js";
 
-    const data = {
+    let data;
+
+    $:data = Array.of($coronadataset.hospitalizedCurrently, 
+    $coronadataset.inIcuCurrently, $coronadataset.negative, $coronadataset.deathConfirmed)
+    
+    let label;
+    $:label =  `Breakdown of in ${$coronadataset.state} today`;
+    let coronadata 
+    
+    $:coronadata = {
         labels: ['hospitalizedCurrently', 'inIcuCurrently', 'negative', 'deathConfirmed'],
             datasets: [{
-                label: `Coronavirus data for ${dataset.state}`,
+                label: label, //`Breakdown of in ${coronadataset.state} today`,
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [$dataset.hospitalizedCurrently, $dataset.inIcuCurrently, $dataset.negative, $dataset.deathConfirmed]
+                data: data
             }]
 
     }
 
-    // const unsubscribe = dataset.subscribe( value =>{
-    //     data = value;
-
-    // })
-
-    // const dataset =  {
-    //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    //         datasets: [{
-    //             label: 'My First dataset',
-    //             backgroundColor: 'rgb(255, 99, 132)',
-    //             borderColor: 'rgb(255, 99, 132)',
-    //             data: [0, 10, 5, 2, 20, 30, 45]
-    //         }]
-    //     };
+    
 
     const createChart = () =>{
 
-        console.log($dataset.hospitalizedCurrently);
 
         const ctx = document.getElementById("chart").getContext('2d');
 
@@ -44,7 +38,7 @@
         type: 'bar',
 
         // The data for our dataset
-        data: data,
+        data: coronadata,
 
         // Configuration options go here
         options: {}
@@ -52,6 +46,7 @@
     }
 
     afterUpdate(()=>
+    // console.log(data)
     createChart()
 );
 
@@ -60,13 +55,14 @@
 
 </script>
 
-{#if $dataset.state}
-    <h1>Showing coronavirus data for {$dataset.state}</h1>
+{#if $coronadataset.state}
+    <h1>Showing coronavirus data for {$coronadataset.state}</h1>
 {:else}
     <h1>Look up a state's coronavirus data</h1>
 {/if}
 
 
+<canvas id="chart" width="50" height="50"/>
 
 
 
