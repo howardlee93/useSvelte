@@ -9,14 +9,15 @@
     let data;
 
     $:data = Array.of($coronadataset.hospitalizedCurrently, 
-    $coronadataset.inIcuCurrently, $coronadataset.negative, $coronadataset.deathConfirmed)
+    $coronadataset.inIcuCurrently, $coronadataset.deathConfirmed)
     
     let label;
-    $:label =  `Breakdown of in ${$coronadataset.state} today`;
-    let coronadata 
+    $:label =  `Breakdown of cases in ${$coronadataset.state} today`;
+    let coronadata;
+    
     
     $:coronadata = {
-        labels: ['hospitalizedCurrently', 'inIcuCurrently', 'negative', 'deathConfirmed'],
+        labels: ['hospitalizedCurrently', 'inIcuCurrently', 'deathConfirmed'],
             datasets: [{
                 label: label, //`Breakdown of in ${coronadataset.state} today`,
                 backgroundColor: 'rgb(255, 99, 132)',
@@ -41,7 +42,10 @@
         data: coronadata,
 
         // Configuration options go here
-        options: {}
+        options: {
+            responsive: true,
+            aspectRatio: 5
+            }
         });
     }
 
@@ -62,7 +66,7 @@
 {/if}
 
 
-<canvas id="chart" width="50" height="50"/>
+<canvas id="chart" />
 
 
 
