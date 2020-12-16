@@ -1,7 +1,7 @@
 
 <script>
 
-    import { afterUpdate, onMount, onDestroy } from "svelte";
+    import { afterUpdate } from "svelte";
     import {coronadataset} from '../store/store';
 
     import Chart from "chart.js";
@@ -15,7 +15,6 @@
     $:label =  `Breakdown of cases in ${$coronadataset.state} today`;
     let coronadata;
     
-    
     $:coronadata = {
         labels: ['hospitalizedCurrently', 'inIcuCurrently', 'deathConfirmed'],
             datasets: [{
@@ -27,10 +26,7 @@
 
     }
 
-    
-
     const createChart = () =>{
-
 
         const ctx = document.getElementById("chart").getContext('2d');
 
@@ -53,9 +49,6 @@
     // console.log(data)
     createChart()
 );
-
-
-
 
 </script>
 
